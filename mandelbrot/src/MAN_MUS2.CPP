@@ -12,16 +12,36 @@ void do_mouse_plot(void)
 	int col,m_x,m_y;
 	long double c_x,c_y;
 
-	r.r_ax = 0x00;		// check mouse driver
+	r.r_ax = 0x00;		/* マウスドライバー確認 */
 	intr(0x33,&r);
 	if(r.r_ax == 0) return;
 
-	r.r_ax = 0x0f;		// set m/s
+	r.r_ax = 255;		/* カーソル書き込み面設定 */
+	r.r_bx = 0x0f;
+	if(cur_palette == 2 || cur_palette == 3) r.r_bx = 0x01;
+	intr(0x33,&r);
+
+	r.r_ax = 0x0f;		/* ミッキー設定 */
 	r.r_cx = 5;
 	r.r_dx = 5;
 	intr(0x33,&r);
 
-	r.r_ax = 0x01;		// cursor ON
+	r.r_ax = 0x07;		/* 水平方向カーソル移動範囲 */
+	r.r_cx = xw_min;
+	r.r_dx = xw_max;
+	intr(0x33,&r);
+
+	r.r_ax = 0x08;		/* 垂直方向カーソル移動範囲 */
+	r.r_cx = yw_min;
+	r.r_dx = yw_max;
+	intr(0x33,&r);
+
+	r.r_ax = 0x01;		/* マウスカーソル ON */
+	intr(0x33,&r);
+
+	r.r_ax = 0x04;		/* x y 座標設定 */
+	r.r_cx = (xw_max+xw_min)/2;
+	r.r_dx = (yw_max+yw_min)/2;
 	intr(0x33,&r);
 
 	window(xtw_min,ytw_min,xtw_max,ytw_max);
@@ -30,23 +50,11 @@ void do_mouse_plot(void)
 
 	for(;;)
 	{
-		r.r_ax = 0x03;		// read x/y & button
+		r.r_ax = 0x03;		/* ボタンの状態と位置の取得 */
 		intr(0x33,&r);
-		m_x = r.r_cx;		// 0 - 639
-		m_y = r.r_dx;		// 0 - 399
-		// only in window
-		if(m_x < xw_min || m_x > xw_max || m_y < yw_min || m_y > yw_max)
-		{
-			if(m_x < xw_min) m_x = xw_min;
-			else if(m_x > xw_max) m_x = xw_max;
-			if(m_y < yw_min) m_y = yw_min;
-			else if(m_y > yw_max) m_y = yw_max;
-			_DX = m_y;
-			_CX = m_x;
-			_AX = 0x0004;
-			geninterrupt(0x33);
-		}
-		// real x-y co-ordinate
+		m_x = r.r_cx;		/* ｘ */
+		m_y = r.r_dx;		/* ｙ */
+		/* 実数に割当 */
 		c_x = ((long double)m_x - (long double)xw_min)/dxratio + dxmin;
 		c_y = ((long double)yw_max - (long double)m_y)/dyratio + dymin;
 
@@ -54,7 +62,7 @@ void do_mouse_plot(void)
 		cprintf("% -17.12Le",c_x);
 		gotoxy(2,13);
 		cprintf("% -17.12Le",c_y);
-		if(r.r_bx & 0x01)	// if LIGHT BUTTON
+		if(r.r_bx & 0x01)	/* 左ボタンが押されたら */
 		{
 			x_cen = (long double)c_x;
 			y_cen = (long double)c_y;
@@ -64,15 +72,16 @@ void do_mouse_plot(void)
 
 
 
-		_AX = 0x0400;		// check key sense
+		_AX = 0x0400;		/* ESC キーチェック */
 		geninterrupt(0x18);
-		col = (int)_AH;
-		if(col & 0x1) break;
+		if(_AH & 0x01) break;
 
 	}
 
-	r.r_ax = 0x02;		// cursor OFF
+	r.r_ax = 0x02;		/* マウスカーソル OFF */
 	intr(0x33,&r);
+
+	key_buf_cls();
 
 	prn_data_win();
 

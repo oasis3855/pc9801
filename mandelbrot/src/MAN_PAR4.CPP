@@ -79,27 +79,27 @@ void prn_data_win(void)
 	textattr(_c_info);
 	clrscr();
 	gotoxy(1,1);
-	cprintf("実数 中心値\r\n");		// 1
-	gotoxy(1,2);
-	cprintf(" % -18.13Lg\r\n",x_cen);	// 2
+	cprintf("実数 中心値");		// 1
+	gotoxy(2,2);
+	cprintf("% -18.13Lg",x_cen);	// 2
 	gotoxy(1,3);
-	cprintf("虚数 中心値 \r\n");		// 3
-	gotoxy(1,4);
-	cprintf(" % -18.13Lg\r\n",y_cen);	// 4
+	cprintf("虚数 中心値");		// 3
+	gotoxy(2,4);
+	cprintf("% -18.13Lg",y_cen);	// 4
 	gotoxy(1,5);
-	cprintf("表示範囲 \r\n");		// 5
-	gotoxy(1,6);
-	cprintf("  %-18.13Lg\r\n",xy_scale);	// 6
+	cprintf("表示範囲");		// 5
+	gotoxy(3,6);
+	cprintf("%-18.13Lg",xy_scale);	// 6
 	gotoxy(1,7);
-	cprintf("簡略化 %-2d ",f_mode);	// 7
+	cprintf("簡略化 %-2d",f_mode);	// 7
 
-	gotoxy(1,8);
-	cprintf("    %% 完了 ");			// 8
+	gotoxy(5,8);
+	cprintf("%% 完了");			// 8
 
 	gotoxy(1,10);
-	cprintf("実数: ");				// 10
+	cprintf("実数");				// 10
 	gotoxy(1,12);
-	cprintf("虚数: ");				// 11
+	cprintf("虚数");				// 11
 	gotoxy(1,14);
 	cprintf("処理諧調 %-02d",maxcolor);
 	gotoxy(1,15);
@@ -107,6 +107,15 @@ void prn_data_win(void)
 
 }
 
+void mk_mandel_win(void)
+{
+	chg_palette();
+	gsetpattern(32,_bpat);
+	gbarp(0,16,639,399,_BLACK);
+	set_param();
+	prn_data_win();
+	gbarf(xw_min-2,yw_min-2,xw_max+2,yw_max+2,_cg_man,_BLACK);
+}
 
 void init_GMNU(void)
 {
@@ -224,11 +233,10 @@ void init_GMNU(void)
 	f_mode = 1;
 
 	set_param();
-	_hc_sX = 1;		// 2*2
-	_hc_sY = 1;
 	_txt_jinp_bptone = 1200;
 	strcpy(_hc_sC,"0101010101010101");
 
 	strcpy(filename,"");
 
 }
+

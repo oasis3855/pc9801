@@ -131,7 +131,9 @@ int do_mandel(void)
 
 			gr_pset(x+xw_min,y+yw_min,(int)ColorArray[i]);
 		}
-		if(*_km_m0 & 0x01) break;
+		_AH = 0x01;			/* キーバッファ状態のセンス */
+		geninterrupt(0x18);
+		if(_BH) if(getch() == 0x1b) break;
 	}
 	free(ColorArray);
 	free(sv_image);
@@ -215,8 +217,9 @@ int do_mandel_C(void)
 			}
 			gr_pset(x+xw_min,y+yw_min,(int)ColorArray[i]);
 		}
-
-		if(*_km_m0 & 0x01) break;
+		_AH = 0x01;			/* キーバッファ状態のセンス */
+		geninterrupt(0x18);
+		if(_BH) if(getch() == 0x1b) break;
 	}
 
 	free(ColorArray);
@@ -227,19 +230,8 @@ int do_mandel_C(void)
 
 }
 
-void mk_mandel_win(void)
-{
-	chg_palette();
-	gsetpattern(32,_bpat);
-	gbarp(0,16,639,399,_BLACK);
-	set_param();
-	prn_data_win();
-	gbarf(xw_min-2,yw_min-2,xw_max+2,yw_max+2,_cg_man,_BLACK);
-}
-
 int matherr(struct exception *p)
 {
-	do_error_win("\r\n         浮動小数点演算エラー");
 	p->retval = 1.0;
 	return 1;
 }

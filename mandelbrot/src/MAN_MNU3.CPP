@@ -55,8 +55,8 @@ char *mbar_str[] = {"ファイル",
 				"オプション"};
 int mbar_x[] = {5,17,30};
 
+char _str_dmy[] = {"ﾊｲﾚｿﾞﾘｭｰｼｮﾝﾓｰﾄﾞ では動きません.\n"};
 char commandcom[30];
-
 
 void main(void)
 {
@@ -66,13 +66,12 @@ void main(void)
 	gcolor(_LIGHTGREEN,_BLACK,2);
 	gcls();
 	gview(0,0,639,399,-1,-1);
-	chg_palette();
-	printf("\x1b[2J\x1b[>1h\x1b[20m\x1b[>5h");
+	printf("\x1b[2J\x1b[>1h\x1b[>5h");	/* ｶｰｿﾙ OFF 等 */
 
 	/* マシンのチェック */
 	if(PC98_chk_hi_resolution())
 	{
-		printf("\nﾊｲﾚｿﾞﾘｭｰｼｮﾝ ﾓｰﾄﾞ では動きません\n");
+		puts(_str_dmy);
 		exit(0);
 	}
 
@@ -83,14 +82,14 @@ void main(void)
 
 	/* カラー初期値 */
 	_c_mnu  = WHITE|REVERSE;	/* メニュー */
-	_c_mnuv = WHITE;		/* メニュー反転 */
+	_c_mnuv = WHITE;			/* メニュー反転 */
 	_c_box  = WHITE|REVERSE;	/* メニュー枠 */
 	_c_barb = WHITE|REVERSE;	/* バー */
 	_c_bar  = WHITE|REVERSE;	/* バーメニュー */
-	_c_barv = WHITE;		/* バーメニュー反転 */
-	_c_info = WHITE;		/* 座標値等表示 */
-	_cg_man = _BLUE;		/* マンデル画面ボーダー */
-	_cg_info = _BLUE;		/* インフォメーションエリアボーダー */
+	_c_barv = WHITE;			/* バーメニュー反転 */
+	_c_info = WHITE;			/* 座標値等表示 */
+	_cg_man = _BLUE;			/* マンデル画面ボーダー */
+	_cg_info = _BLUE;			/* インフォメーションエリアボーダー */
 
 	strcpy(commandcom,getenv("COMSPEC"));
 	if(!strcmp(commandcom,NULL)) strcpy(commandcom,"COMMAND.COM");
@@ -99,6 +98,7 @@ void main(void)
 	init_GMNU();
 	strcpy(filename,"MANDEL");
 	load_env();
+	chg_palette();
 
 
 	/* 全てのパラメータの初期化 */
@@ -109,7 +109,7 @@ void main(void)
 	chg_palette();
 	gsetpattern(32,_bpat);
 	gbarp(0,16,639,399,_BLACK);
-	delay(2000);
+	delay(1500);
 	do_info_win();
 
 	/* MANDEL 計算表示ウインドウ表示 */
@@ -159,6 +159,7 @@ int do_menu_1(void)
 					w1.mode = W_CLOSE;
 					mnu_GLIO_gmenu(&w1,0,m_str1,&ret);
 					load_file();
+					restore_screen();
 					w1.mode = W_FWRITE;
 					mnu_GLIO_gmenu(&w1,0,m_str1,&ret);
 				}
@@ -174,6 +175,7 @@ int do_menu_1(void)
 					w1.mode = W_CLOSE;
 					mnu_GLIO_gmenu(&w1,0,m_str1,&ret);
 					save_file();
+					restore_screen();
 					w1.mode = W_FWRITE;
 					mnu_GLIO_gmenu(&w1,0,m_str1,&ret);
 				}
@@ -190,8 +192,8 @@ int do_menu_1(void)
 					mnu_GLIO_gmenu(&w1,0,m_str1,&ret);
 					load_env();
 					init_GMNU();
-					mk_mandel_win();
-					mnu_barmake(&w_bar,mbar_str,mbar_x,"ﾏﾝﾃﾞﾙﾌﾞﾛｰﾄ (C) 1992 井上 博計",52);
+					restore_screen();
+					chg_palette();
 					w1.mode = W_FWRITE;
 					mnu_GLIO_gmenu(&w1,0,m_str1,&ret);
 				}
@@ -202,11 +204,12 @@ int do_menu_1(void)
 				}
 				break;
 			case	5	:		// 環境書き出し
-				if(do_input_char(filename,m_str_fld) == 0)
+				if(do_input_char(filename,m_str_fsv) == 0)
 				{
 					w1.mode = W_CLOSE;
 					mnu_GLIO_gmenu(&w1,0,m_str1,&ret);
 					save_env();
+					restore_screen();
 					w1.mode = W_FWRITE;
 					mnu_GLIO_gmenu(&w1,0,m_str1,&ret);
 				}
@@ -244,9 +247,7 @@ int do_menu_1(void)
 				gscreen(3,1,0,1);
 				gcolor(_LIGHTGREEN,_BLACK,2);
 				chg_palette();
-				printf("\x1b[2J\x1b[>1h\x1b[m\x1b[>5h");
-				mnu_barmake(&w_bar,mbar_str,mbar_x,"ﾏﾝﾃﾞﾙﾌﾞﾛｰﾄ (C) 1992 井上 博計",52);
-				prn_data_win();
+				restore_screen();
 				w1.mode = W_FWRITE;
 				mnu_GLIO_gmenu(&w1,0,m_str1,&ret);
 				break;
@@ -275,6 +276,12 @@ int do_menu_1(void)
 
 }
 
+void restore_screen(void)
+{	/* テキストのみ */
+	printf("\x1b[2J\x1b[>1h\x1b[m\x1b[>5h");
+	mnu_barmake(&w_bar,mbar_str,mbar_x,"ﾏﾝﾃﾞﾙﾌﾞﾛｰﾄ (C) 1992 井上 博計",52);
+	prn_data_win();
+}
 
 int do_menu_2(void)
 {
@@ -293,9 +300,7 @@ int do_menu_2(void)
 				w2.mode = W_CLOSE;
 				mnu_GLIO_gmenu(&w2,0,m_str2,&ret);
 				_hc_sX = 1;_hc_sY = 1;
-				hc_prn_init();
 				hc_hardcopy();
-				hc_prn_close();
 				w2.mode = W_FWRITE;
 				mnu_GLIO_gmenu(&w2,0,m_str2,&ret);
 				break;
@@ -303,9 +308,7 @@ int do_menu_2(void)
 				w2.mode = W_CLOSE;
 				mnu_GLIO_gmenu(&w2,0,m_str2,&ret);
 				_hc_sX = 0;_hc_sY = 0;
-				hc_prn_init();
 				hc_hardcopy();
-				hc_prn_close();
 				w2.mode = W_FWRITE;
 				mnu_GLIO_gmenu(&w2,0,m_str2,&ret);
 				break;
@@ -359,7 +362,6 @@ int do_menu_3(void)
 			case 3	:		// 処理諧調設定
 				do_input_int(&maxcolor,m_str_mc);
 				if(maxcolor <= 0) maxcolor = 1;
-//				if(maxcolor >= 16) maxcolor = 15;
 				prn_data_win();
 				w3.mode = W_RESTORE;
 				mnu_GLIO_gmenu(&w3,0,m_str3,&ret);
@@ -398,7 +400,6 @@ int do_menu_3(void)
 
 void do_input_w4(void)
 {
-	char dummy[30];
 	int check,i,retcode;
 	long PmX,PmY,PmR;
 	char *buf[] = {"(C)opyright 1992 井上 博計     ",
@@ -406,9 +407,9 @@ void do_input_w4(void)
 				"ﾒｰﾙは以上の所までどうぞ！！    "};
 
 
-	strncpy(buf[0],gcvt(x_cen,15,dummy),w4.data_len - 2);
-	strncpy(buf[1],gcvt(y_cen,15,dummy),w4.data_len - 2);
-	strncpy(buf[2],gcvt(xy_scale,15,dummy),w4.data_len - 2);
+	strncpy(buf[0],gcvt(x_cen,15,_str_dmy),w4.data_len - 2);
+	strncpy(buf[1],gcvt(y_cen,15,_str_dmy),w4.data_len - 2);
+	strncpy(buf[2],gcvt(xy_scale,15,_str_dmy),w4.data_len - 2);
 
 	w4.mode = W_FWRITE;
 	check = inp_GLIO_gwin(&w4,buf,m_str4,&retcode);
@@ -420,7 +421,7 @@ void do_input_w4(void)
 	{
 		x_cen = atof(buf[0]);
 		y_cen = atof(buf[1]);
-          xy_scale = atof(buf[2]);
+		xy_scale = atof(buf[2]);
 	}
 
 	if(xy_scale <= 0) xy_scale = 1.0e-10;
@@ -434,13 +435,12 @@ void do_input_w4(void)
 
 void do_input_int(int *num, char *m_str[])
 {
-	char dummy[20];
 	int check,i,retcode;
 	char *buf[] = {"(C)opyright 1992 井上 博計     ",
 				"Nifty Serve GDH03306           ",
 				"ﾒｰﾙは以上の所までどうぞ！！    "};
 
-	strncpy(buf[0],itoa(*num,dummy,10),wi.data_len-2);
+	strncpy(buf[0],itoa(*num,_str_dmy,10),wi.data_len-2);
 
 
 	wi.mode = W_FWRITE;
@@ -460,7 +460,6 @@ void do_input_int(int *num, char *m_str[])
 
 int do_input_char(char *str, char *m_str[])
 {
-	char dummy[20];
 	int check,i,retcode;
 	char *buf[] = {"(C)opyright 1992 井上 博計     ",
 				"Nifty Serve GDH03306           ",
@@ -535,13 +534,13 @@ void do_info_win(void)
 	w_info.mode = W_FWRITE;
 	win_GLIO_gwin(&w_info,&ret);
 
-	textattr(w_info.color|BLINK);
+	textattr(w_info.color);
 	gotoxy(9,2);
 	cputs("マンデルブロート集合描画");
 	gotoxy(12,3);
 	cputs("MANDEL.EXE / PC-9801");
 	gotoxy(15,4);
-	cputs("Version 2.00");
+	cputs("Version 2.00B");
 	gotoxy(12,5);
 	cputs("(C) 1992 井上 博計");
 

@@ -1,29 +1,18 @@
-Archive file => MANDEL20.LZH
+MANDL20B.LZH 中に納められたファイル
 
-Program Title => MANDELBROT WRITING APPRICATION for PC-9801 (JAPANESE)
-
-Contents
-
-  MANDEL   DOC     7737  92-03-20    0:00    => MANUAL
-  MANDEL   ENV      530  92-03-20    0:00    => 
-  MAN_MI   ENV      530  92-03-20    0:00    => Env file sample
-  MAN_QC   ENV      530  92-03-20    0:00    => 
-  MAN_TC   ENV      530  92-03-20    0:00    => 
-  MAN_TCP  ENV      530  92-03-20    0:00    => 
-  MANDEL   EXE    63770  92-03-20    0:00    => MAIN PROGRAM
-  MANDEL_C EXE     8992  92-03-20    0:00    => (Child process)
-  README   DOC      936  92-03-20    0:00    => This ...
+  MANDEL   DOC     8454  92-04-06    0:00    : Ver2.00B用説明書
+  MANDEL   BDF    16168  92-04-06    0:00    : Ver2.00 -> Ver2.00B 差分
+  UPDATE   DOC      969  92-04-06    0:00    : .DOCのVerUp説明抜き出し
 
 
-Target Machine => JAPAN NEC Corp. PC-9801 Series Personal Computer
-                   carry 286/386/486 CPU on its heart.
-                   and Normalmode (640x400 Graphisc 16/4096 Color)
+■アップデート方法
 
-Target OS => MS-DOS Ver 3.xx , 5.xx or later
+Ver 2.00 の MANDEL.EXE と Ver 2.00B の MANDEL.BDF をカレントディレクトリに置き
 
+A>BUPDATE MANDEL.BDF （リターン）
+  ^^^^^^^^^^^^^^^^^^
+で新しい MANDEL.EXE (Ver 2.00) が誕生します。
 
-Inoue. Hirokazu
-
-Nifty Serve GDH03306
-PC-VAN      KYJ15060
+BUPDATEが必要です
+^^^^^^^^^^^^^^^^^
 
