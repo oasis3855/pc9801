@@ -1,0 +1,23 @@
+ファイル構成
+
+FD_MOFF  DOC     3186  92-03-07   20:26 -- 説明書
+FD_MOFF  ASM     2499  92-03-07   17:29 -- ソースコード
+FD_MOFF2 ASM     2323  92-03-07   17:29
+FD_MOFF  COM      286  92-03-07   17:29 -- プログラム（本体）
+FD_MOFF2 COM      274  92-03-07   17:30
+README   DOC      629  92-03-07   20:27 -- このファイル
+
+動作機種
+ PC-9801 RX(EX),RS(ES),RA,DX,DS,DA ... + MS-DOS
+実行方法
+ FD_MOFF : パラメータなし
+目的
+ 1MB FD の自動モータON/OFF制御
+
+FD_MOFF.DOC を必ずお読み下さい。
+
+
+このプログラムは LHA で圧縮されています。
+
+                                                 Nifty Serve GDH03306 井上 博計
+
