@@ -1,0 +1,74 @@
+C       MS-FORTRAN include file (definitions)
+C       *************************************************************
+C       GLIO.FD : Symbol Definition Include file
+C        (C) 1993 INOUE, Hirokazu
+C        C Library for MS-FORTRAN
+C
+C        ソースファイルのそれぞれのブロックで宣言する事
+C       *************************************************************
+
+$NOTRUNCATE
+$NOTSTRICT
+
+C	コピーモードの宣言
+
+	INTEGER*2 GPUT_COPY, $GPUT_NOT, $GPUT_OR, $GPUT_AND, $GPUT_XOR
+
+
+        PARAMETER($GPUT_COPY	= 0)
+        PARAMETER($GPUT_NOT	= 1)
+        PARAMETER($GPUT_OR	= 2)
+        PARAMETER($GPUT_AND	= 3)
+        PARAMETER($GPUT_XOR	= 4)
+
+
+
+C       外部モジュールの宣言
+
+	EXTERNAL garc
+	EXTERNAL garcf
+	EXTERNAL garcp
+	EXTERNAL gbar
+	EXTERNAL gbarf
+	EXTERNAL gbarp
+	EXTERNAL gbox
+	EXTERNAL gboxs
+	EXTERNAL gcircle
+	EXTERNAL gcirclef
+	EXTERNAL gcirclep
+	EXTERNAL gcls
+	EXTERNAL gcolor
+	EXTERNAL gellipse
+	EXTERNAL gellipsef
+	EXTERNAL gellipsep
+	EXTERNAL gget
+	EXTERNAL ginit
+	EXTERNAL gline
+	EXTERNAL glines
+	EXTERNAL gload
+	EXTERNAL gpaint
+	EXTERNAL gpaintp
+	EXTERNAL gpie
+	EXTERNAL gpief
+	EXTERNAL gpiep
+	EXTERNAL gpmode
+	EXTERNAL gpset
+	EXTERNAL gput
+	EXTERNAL gputch
+	EXTERNAL gputchar
+	EXTERNAL gputcode
+	EXTERNAL gputs
+	EXTERNAL groll
+	EXTERNAL groll0
+	EXTERNAL gsave
+	EXTERNAL gscreen
+	EXTERNAL gsetpattern
+	EXTERNAL gsetpos
+	EXTERNAL gview
+	
+	INTEGER*2 ggetsize[EXTERN]
+	INTEGER*2 gpoint[EXTERN]
+	INTEGER*2 gpxpos[EXTERN]
+	INTEGER*2 gpypos[EXTERN]
+
+C	ファイルエンド [EOF]

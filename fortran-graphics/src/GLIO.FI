@@ -1,0 +1,256 @@
+C       MS-FORTRAN include file (interfaces)
+C       *************************************************************
+C       GLIO.FI : Interface file
+C        グラフィックス関数ライブラリー for PC-9801
+C        (C)opyright 1993 INOUE, Hirokazu  All Rights Reserved
+C        C Library for MS-FORTRAN
+C
+C        このファイルは各ソースファイルの最初に１度だけ読み込む
+C        例 : $INCLUDE:'GLIO.FI'
+C       *************************************************************
+
+C       本ライブラリー使用上の注意　！
+C       このライブラリーはＣ言語用ですので FORTRAN で使用するときは、
+C       必ず ｲﾝﾀｰﾌｪｰｽ 定義ファイル(このファイル)をｲﾝｸﾙｰﾄﾞしてください。
+C       又、文字列はＣ言語互換の文字列を使用して下さい。
+C        例 ： gputs('XXXXXXXXXXXXX'C) のように C で終わる文字列
+
+C	※注意 : ﾌｨﾙﾊﾟﾀｰﾝの設定がうまくいきません。
+
+
+$NOTRUNCATE
+$NOTSTRICT
+
+C	サブルーチンへのインターフェース
+
+	INTERFACE to SUBROUTINE
+     +   garc[FAR,C,ALIAS:'_garc'](px, py, rx, ry, color, sang, eang)
+        INTEGER*2 px, py, rx, ry, color, sang, eang
+	END
+
+        INTERFACE to SUBROUTINE
+     +   garcf[FAR,C,ALIAS:'_garcf'](px, py, rx, ry,
+     +   col, fcol, sang, eang)
+        INTEGER*2 px, py, rx, ry, col, fcol, sang, eang
+        END
+
+        INTERFACE to SUBROUTINE
+     +   garcp[FAR,C,ALIAS:'_garcp'](px, py, rx, ry, color, sang, eang)
+        INTEGER*2 px, py, rx, ry, color, sang, eang
+        END
+
+        INTERFACE to SUBROUTINE
+     +   gbar[FAR,C,ALIAS:'_gbar'](left, top, right, bottom, color)
+        INTEGER*2 left, top, right, bottom, color
+        END
+
+        INTERFACE to SUBROUTINE
+     +   gbarf[FAR,C,ALIAS:'_gbarf'](left, top, right, bottom,
+     +   color, fcolor)
+        INTEGER*2 left, top, right, bottom, color, fcolor
+        END
+
+        INTERFACE to SUBROUTINE
+     +   gbarp[FAR,C,ALIAS:'_gbarp'](left, top, right, bottom, color)
+        INTEGER*2 left, top, right, bottom, color
+        END
+
+        INTERFACE to SUBROUTINE
+     +   gbox[FAR,C,ALIAS:'_gbox'](left, top, right, bottom, color)
+        INTEGER*2 left, top, right, bottom, color
+        END
+
+        INTERFACE to SUBROUTINE
+     +   gboxs[FAR,C,ALIAS:'_gboxs'](left, top, right, bottom,
+     +   color, style)
+        INTEGER*2 left, top, right, bottom, color, style
+        END
+
+        INTERFACE to SUBROUTINE
+     +   gcircle[FAR,C,ALIAS:'_gcircle'](px, py, radius, color)
+        INTEGER*2 px, py, radius, color
+        END
+
+        INTERFACE to SUBROUTINE
+     +   gcirclef[FAR,C,ALIAS:'_gcirclef'](px, py, radius,
+     +   color, fcolor)
+        INTEGER*2 px, py, radius, color, fcolor
+        END
+
+        INTERFACE to SUBROUTINE
+     +   gcirclep[FAR,C,ALIAS:'_gcirclep'](px, py, radius, color)
+        INTEGER*2 px, py, radius, color
+        END
+
+        INTERFACE to SUBROUTINE gcls[FAR,C,ALIAS:'_gcls']()
+        END
+
+        INTERFACE to SUBROUTINE
+     +   gcolor[FAR,C,ALIAS:'_gcolor'](fore, back, mode)
+        INTEGER*2 fore, back, mode
+        END
+
+	INTERFACE to SUBROUTINE
+     +   gellipse[FAR,C,ALIAS:'_gellipse'](px, py, rx, ry, color)
+        INTEGER*2 px, py, rx, ry, color
+	END
+
+        INTERFACE to SUBROUTINE
+     +   gellipsef[FAR,C,ALIAS:'_gellipsef'](px, py, rx, ry,
+     +   col, fcol)
+        INTEGER*2 px, py, rx, ry, col, fcol
+        END
+
+        INTERFACE to SUBROUTINE
+     +   gellipsep[FAR,C,ALIAS:'_gellipsep'](px, py, rx, ry, color)
+        INTEGER*2 px, py, rx, ry, color
+        END
+
+        INTERFACE to SUBROUTINE
+     +   gget[FAR,C,ALIAS:'_gget'](x1, y1, x2, y2, buf)
+        INTEGER*2 x1, y1, x2, y2
+        INTEGER*1 buf[FAR,REFERENCE](*)
+        END
+
+        INTERFACE to SUBROUTINE ginit[FAR,C,ALIAS:'_ginit']()
+        END
+
+        INTERFACE to SUBROUTINE
+     +   gline[FAR,C,ALIAS:'_gline'](x1, y1, x2, y2, color)
+        INTEGER*2 x1, y1, x2, y2, color
+        END
+
+        INTERFACE to SUBROUTINE
+     +   glines[FAR,C,ALIAS:'_glines'](x1, y1, x2, y2, color, style)
+        INTEGER*2 x1, y1, x2, y2, color, style
+        END
+
+        INTERFACE to SUBROUTINE
+     +   gload[FAR,C,ALIAS:'_gload'](filename)
+        CHARACTER*(*) filename[FAR,REFERENCE]
+        END
+
+        INTERFACE to SUBROUTINE
+     +   gpaint[FAR,C,ALIAS:'_gpaint'](x, y, color, border)
+        INTEGER*2 x, y, color, border
+        END
+
+        INTERFACE to SUBROUTINE
+     +   gpaintp[FAR,C,ALIAS:'_gpaintp'](x, y, border)
+        INTEGER*2 x, y, border
+        END
+
+        INTERFACE to SUBROUTINE
+     +   gpalette[FAR,C,ALIAS:'_gpalette'](no, color)
+        INTEGER*2 no, color
+        END
+
+	INTERFACE to SUBROUTINE
+     +   gpie[FAR,C,ALIAS:'_gpie'](px, py, rx, ry, color, sang, eang)
+        INTEGER*2 px, py, rx, ry, color, sang, eang
+	END
+
+        INTERFACE to SUBROUTINE
+     +   gpief[FAR,C,ALIAS:'_gpief'](px, py, rx, ry,
+     +   col, fcol, sang, eang)
+        INTEGER*2 px, py, rx, ry, col, fcol, sang, eang
+        END
+
+        INTERFACE to SUBROUTINE
+     +   gpiep[FAR,C,ALIAS:'_gpiep'](px, py, rx, ry, color, sang, eang)
+        INTEGER*2 px, py, rx, ry, color, sang, eang
+        END
+
+        INTERFACE to SUBROUTINE
+     +   gpmode[FAR,C,ALIAS:'_gpmode'](mode)
+        INTEGER*2 mode
+        END
+
+        INTERFACE to SUBROUTINE
+     +   gpset[FAR,C,ALIAS:'_gpset'](x, y, color)
+        INTEGER*2 x, y, color
+        END
+
+        INTERFACE to SUBROUTINE
+     +   gput[FAR,C,ALIAS:'_gput'](x1, y1, mode, buf)
+        INTEGER*2 x1, y1, mode
+        INTEGER*1 buf[FAR,REFERENCE](*)
+        END
+
+        INTERFACE to SUBROUTINE
+     +   gputch[FAR,C,ALIAS:'_gputch'](code)
+        INTEGER*2 code
+        END
+
+        INTERFACE to SUBROUTINE
+     +   gputchar[FAR,C,ALIAS:'_gputchar'](code)
+        INTEGER*2 code
+        END
+
+        INTERFACE to SUBROUTINE
+     +   gputcode[FAR,C,ALIAS:'_gputcode'](x, y, code, mode)
+        INTEGER*2 x, y, code, mode
+        END
+
+        INTERFACE to SUBROUTINE
+     +   gputs[FAR,C,ALIAS:'_gputs'](str)
+        CHARACTER*(*) str[FAR,REFERENCE]
+        END
+
+        INTERFACE to SUBROUTINE
+     +   groll[FAR,C,ALIAS:'_groll'](xdots, ydots)
+        INTEGER*2 xdots, ydots
+        END
+
+        INTERFACE to SUBROUTINE
+     +   groll0[FAR,C,ALIAS:'_groll0'](xdots, ydots)
+        INTEGER*2 xdots, ydots
+        END
+
+        INTERFACE to SUBROUTINE
+     +   gsave[FAR,C,ALIAS:'_gsave'](filename)
+        CHARACTER*(*) filename[FAR,REFERENCE]
+        END
+
+        INTERFACE to SUBROUTINE
+     +   gscreen[FAR,C,ALIAS:'_gscreen'](mode, sw, active, visual)
+        INTEGER*2 mode,sw,active,visual
+        END
+
+        INTERFACE to SUBROUTINE
+     +   gsetpattern[FAR,C,ALIAS:'_gsetpos'](ln, pat)
+        INTEGER*2 ln
+        INTEGER*1 pat[FAR,REFERENCE](*)
+        END
+
+        INTERFACE to SUBROUTINE
+     +   gsetpos[FAR,C,ALIAS:'_gsetpos'](x, y)
+        INTEGER*2 x, y
+        END
+
+        INTERFACE to SUBROUTINE
+     +   gview[FAR,C,ALIAS:'_gview'](x1, y1, x2, y2, area, border)
+        INTEGER*2 x1, y1, x2, y2, area, border
+        END
+
+C	ファンクションへのインターフェース
+
+      INTERFACE to FUNCTION ggetsize(x1, y1, x2, y2)
+      INTEGER*2 ggetsize[FAR,C,ALIAS:'_ggetsize']
+      INTEGER*2 x1, y1, x2, y2
+      END
+
+      INTERFACE to FUNCTION gpoint(x, y)
+      INTEGER*2 gpoint[FAR,C,ALIAS:'_gpoint']
+      INTEGER*2 x, y
+      END
+
+      INTERFACE to FUNCTION gpxpos()
+      INTEGER*2 gpxpos[FAR,C,ALIAS:'_gpxpos']
+      END
+
+      INTERFACE to FUNCTION gpypos()
+      INTEGER*2 gpypos[FAR,C,ALIAS:'_gpypos']
+      END
+
+C       ファイルエンド [EOF]

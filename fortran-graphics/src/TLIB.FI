@@ -1,0 +1,78 @@
+C       MS-FORTRAN include file (interfaces)
+C       *************************************************************
+C       TLIB.FI : Interface file
+C        テキスト関数ライブラリー for MS-DOS & PC-9801
+C        (C)opyright 1993 INOUE, Hirokazu  All Rights Reserved
+C        C Library for MS-FORTRAN
+C
+C        このファイルは各ソースファイルの最初に１度だけ読み込む
+C        例 : $INCLUDE:'TLIB.FI'
+C       *************************************************************
+
+C       本ライブラリー使用上の注意　！
+C       このライブラリーはＣ言語用ですので FORTRAN で使用するときは、
+C       必ず ｲﾝﾀｰﾌｪｰｽ 定義ファイル(このファイル)をｲﾝｸﾙｰﾄﾞしてください。
+C       又、文字列はＣ言語互換の文字列を使用して下さい。
+C        例 ： tputs('XXXXXXXXXXXXX'C) のように C で終わる文字列
+
+$NOTRUNCATE
+$NOTSTRICT
+
+        INTERFACE to SUBROUTINE
+     +   tcls[FAR,C,ALIAS:'_tcls']()
+        END
+
+        INTERFACE to SUBROUTINE
+     +   tputnum[FAR,C,ALIAS:'_tputnum'](num)
+        INTEGER*2 num
+        END
+
+        INTERFACE to SUBROUTINE
+     +   tputchar[FAR,C,ALIAS:'_tputchar'](num)
+        INTEGER*2 num
+        END
+
+        INTERFACE to SUBROUTINE
+     +   tputs[FAR,C,ALIAS:'_tputs'](str)
+        CHARACTER*(*) str[FAR,REFERENCE]
+        END
+
+        INTERFACE to SUBROUTINE
+     +   tcolor[FAR,C,ALIAS:'_tcolor'](attr)
+        INTEGER*2 attr
+        END
+
+        INTERFACE to SUBROUTINE
+     +   tcolorm[FAR,C,ALIAS:'_tcolorm'](attr1, attr2, attr3)
+        INTEGER*2 attr1, attr2, attr3
+        END
+
+        INTERFACE to SUBROUTINE
+     +   tlocate[FAR,C,ALIAS:'_tlocate'](x, y)
+        INTEGER*2 x, y
+        END
+
+        INTERFACE to SUBROUTINE
+     +   tcursor[FAR,C,ALIAS:'_tcursor'](sw)
+        INTEGER*2 sw
+        END
+
+        INTERFACE to SUBROUTINE
+     +   tline25[FAR,C,ALIAS:'_tline25'](sw)
+        INTEGER*2 sw
+        END
+
+        INTERFACE to SUBROUTINE
+     +   tfunc[FAR,C,ALIAS:'_tfunc'](sw)
+        INTEGER*2 sw
+        END
+
+        INTERFACE to FUNCTION tkbhit ()
+        INTEGER*2 tkbhit[FAR,C,ALIAS:'_tkbhit']
+        END
+
+        INTERFACE to FUNCTION tgetch ()
+        INTEGER*2 tgetch[FAR,C,ALIAS:'_tgetch']
+        END
+
+C       ファイルエンド [EOF]

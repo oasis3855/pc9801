@@ -1,0 +1,63 @@
+C       MS-FORTRAN include file (definitions)
+C       *************************************************************
+C       TLIB.FD : Symbol Definition Include file
+C        (C) 1993 INOUE, Hirokazu
+C        C Library for MS-FORTRAN
+C
+C        ソースファイルのそれぞれのブロックで宣言する事
+C       *************************************************************
+
+$NOTRUNCATE
+$NOTSTRICT
+
+C       テキストアトリビュートの宣言
+
+        INTEGER*2 $TBLUE, $TRED, $TMAGENTA, $TGREEN, $TCYAN, 
+     +            $TYELLOW, $TWHITE, $TBLACK
+     +            $TRBLUE, $TRRED, $TRMAGENTA, $TRGREEN, $TRCYAN, 
+     +            $TRYELLOW, $TRWHITE, $TRBLACK
+
+        PARAMETER($TBLUE        = 18)
+        PARAMETER($TRED         = 17)
+        PARAMETER($TMAGENTA     = 19)
+        PARAMETER($TGREEN       = 20)
+        PARAMETER($TCYAN        = 22)
+        PARAMETER($TYELLOW      = 21)
+        PARAMETER($TWHITE       = 23)
+        PARAMETER($TBLACK       = 30)
+
+        PARAMETER($TRBLUE       = 44)
+        PARAMETER($TRRED        = 41)
+        PARAMETER($TRMAGENTA    = 45)
+        PARAMETER($TRGREEN      = 42)
+        PARAMETER($TRCYAN       = 46)
+        PARAMETER($TRYELLOW     = 43)
+        PARAMETER($TRWHITE      = 47)
+        PARAMETER($TRBLACK      = 40)
+
+        INTEGER*2 $VERT, $UNDERLINE, $BLINK, $REVERSE, $SECRET,
+     +            $DEFAULT
+
+        PARAMETER($VERT         = 2)
+        PARAMETER($UNDERLINE    = 4)
+        PARAMETER($BLINK        = 5)
+        PARAMETER($REVERSE      = 7)
+        PARAMETER($SECRET       = 8)
+        PARAMETER($DEFAULT      = 0)
+
+C       外部モジュールの宣言
+
+        EXTERNAL tcls
+        EXTERNAL tputnum
+        EXTERNAL tputchar
+        EXTERNAL tputs
+        EXTERNAL tcolor
+        EXTERNAL tcolorm
+        EXTERNAL tlocate
+        EXTERNAL tcursor
+        EXTERNAL tline25
+        EXTERNAL tfunc
+        INTEGER*2 tkbhit[EXTERN]
+        INTEGER*2 tgetch[EXTERN]
+
+C       ファイルエンド [EOF]
