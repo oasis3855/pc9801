@@ -1,0 +1,29 @@
+Archive file => MANDEL20.LZH
+
+Program Title => MANDELBROT WRITING APPRICATION for PC-9801 (JAPANESE)
+
+Contents
+
+  MANDEL   DOC     7737  92-03-20    0:00    => MANUAL
+  MANDEL   ENV      530  92-03-20    0:00    => 
+  MAN_MI   ENV      530  92-03-20    0:00    => Env file sample
+  MAN_QC   ENV      530  92-03-20    0:00    => 
+  MAN_TC   ENV      530  92-03-20    0:00    => 
+  MAN_TCP  ENV      530  92-03-20    0:00    => 
+  MANDEL   EXE    63770  92-03-20    0:00    => MAIN PROGRAM
+  MANDEL_C EXE     8992  92-03-20    0:00    => (Child process)
+  README   DOC      936  92-03-20    0:00    => This ...
+
+
+Target Machine => JAPAN NEC Corp. PC-9801 Series Personal Computer
+                   carry 286/386/486 CPU on its heart.
+                   and Normalmode (640x400 Graphisc 16/4096 Color)
+
+Target OS => MS-DOS Ver 3.xx , 5.xx or later
+
+
+Inoue. Hirokazu
+
+Nifty Serve GDH03306
+PC-VAN      KYJ15060
+
