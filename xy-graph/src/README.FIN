@@ -1,0 +1,60 @@
+.ll 76
+.nf
+.hl 1
+
+.ce 2
+XYGRPH.EXE
+README.DOC
+
+.ri 3
+Nifty Serve GDH03306
+PC-VAN KYJ15060
+(C)opyright 1990,91,92 井上 博計
+
+.hl 1
+
+
+
+.in 0
+１．最初に…
+
+.in 3
+.fi
+ＸＹ　ＧRAPH (XYGRPH.EXE)  は、ｙ＝ｆ(ｘ)、｛ｘ＝ｆ(ｔ) ; ｙ＝ｇ(ｔ)｝、ｙ＝dｆ(ｘ)/dｘのグラフを様々な条件のもとで描くプログラムです。
+.br
+ユーザーは、XYGRPH.EXE のメニュー環境を使用して範囲や、色など様々な条件を指定
+できます。
+.br
+そのためには、XYGRPH.EXE のメニューの操作方法を知って頂く必要があります。まずはXYGRPH.DOC をよんで注意事項を読んでください。ＸＹ　ＧRAPH にはオンラインヘルプがありますのでプログラムの実行中にマニュアルを読むことが出来ます。
+キー操作は、MS-Windows や Microsoft Works 等のプルダウンメニュー方式を基本としています。メニューへの入りかたは GRPH ｷｰ 又は F･10ｷｰ です。
+.nf
+
+
+.in 0
+２．ファイルの説明
+
+.in 3
+XYGRPH20 . LZH  :  圧縮ファイル
+.in 6
+XYGRPH   . EXE  :  MS-DOS 用実行ファイル（プログラム本体）
+XYGRPH   . HLP  :  XYGRPH.EXE 用ﾍﾙﾌﾟﾌｧｲﾙ
+XYGRPH   . RGB  :  MAG ﾛｰﾀﾞ等用のｱﾅﾛｸﾞﾊﾟﾚｯﾄ
+XYGRPH   . PAL  :  Z's STAFF KiD98 用のｱﾅﾛｸﾞﾊﾟﾚｯﾄ
+XYGRPH   . ENV  :  XYGRPH.EXE 用標準環境ファイル
+XYGRPH   . DOC  :  総合ドキュメントファイル（テキストファイル）
+GRGBSV   . EXE  :  MS-DOS 用ｸﾞﾗﾌｨｯｸ ｾｰﾊﾞ/ﾛｰﾀﾞ （ﾍﾞﾀ形式）
+GEDIT    . EXE  :  MS-DOS 用ｸﾞﾗﾌｨｯｸ ｴﾃﾞｨﾀｰ
+README   . DOC  :  まず最初に読んで頂くこのファイル
+.in 3
+
+*        . ENV  :  XYGRPH.EXE 用環境ファイル
+*        . R1   :  ｸﾞﾗﾌｨｯｸｲﾒｰｼﾞ  GRGBSV.EXE 用
+*        . G1   :  ｸﾞﾗﾌｨｯｸｲﾒｰｼﾞ  GRGBSV.EXE 用
+*        . B1   :  ｸﾞﾗﾌｨｯｸｲﾒｰｼﾞ  GRGBSV.EXE 用
+*        . E1   :  ｸﾞﾗﾌｨｯｸｲﾒｰｼﾞ  GRGBSV.EXE 用
+
+
+.in 0
+.ri
+1992 / 12 / 30
+.hl 1
