@@ -1,4 +1,4 @@
-## PC9801 ソフトウエア<!-- omit in toc -->
+## ![icon](readme_pics/softdown-ico-pc9801-small.png) PC9801 ソフトウエア<!-- omit in toc -->
 
 ---
 [Home](https://oasis3855.github.io/webpage/) > [Software](https://oasis3855.github.io/webpage/software/index.html) > [Software Download](https://oasis3855.github.io/webpage/software/software-download.html) > ***pc9801*** (this page)

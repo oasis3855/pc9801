@@ -1,4 +1,4 @@
-## フロッピーディスク モーター自動停止 for PC9801<!-- omit in toc -->
+## ![icon](../readme_pics/softdown-ico-pc9801-small.png) フロッピーディスク モーター自動停止 for PC9801<!-- omit in toc -->
 
 ---
 [Home](https://oasis3855.github.io/webpage/) > [Software](https://oasis3855.github.io/webpage/software/index.html) > [Software Download](https://oasis3855.github.io/webpage/software/software-download.html) > [setkeytable](../fdmortoroff/README.md) > ***fdmortoroff*** (this page)

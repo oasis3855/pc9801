@@ -1,4 +1,4 @@
-## XY Graph：関数グラフ作成 統合環境 for PC9801<!-- omit in toc -->
+## ![icon](../readme_pics/softdown-ico-pc9801-small.png) XY Graph：関数グラフ作成 統合環境 for PC9801<!-- omit in toc -->
 
 ---
 [Home](https://oasis3855.github.io/webpage/) > [Software](https://oasis3855.github.io/webpage/software/index.html) > [Software Download](https://oasis3855.github.io/webpage/software/software-download.html) > [setkeytable](../xy-graph/README.md) > ***xy-graph*** (this page)

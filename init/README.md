@@ -1,4 +1,4 @@
-## INIT：グラフィックス、テキスト、ビープ音初期化 for PC9801<!-- omit in toc -->
+## ![icon](../readme_pics/softdown-ico-pc9801-small.png) INIT：グラフィックス、テキスト、ビープ音初期化 for PC9801<!-- omit in toc -->
 
 ---
 [Home](https://oasis3855.github.io/webpage/) > [Software](https://oasis3855.github.io/webpage/software/index.html) > [Software Download](https://oasis3855.github.io/webpage/software/software-download.html) > [setkeytable](../init/README.md) > ***init*** (this page)
