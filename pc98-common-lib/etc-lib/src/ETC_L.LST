@@ -1,0 +1,60 @@
+Publics by module
+
+98BODCOL	size = 55
+	_PC98_boarder_color             
+
+98C16   	size = 24
+	_PC98_16color                   
+
+98C16INI	size = 148
+	_PC98_16color_palette_init      
+
+98CPURES	size = 38
+	_PC98_286CPU_protect_mode         _PC98_286CPU_reset
+	_PC98_386CPU_protect_access     
+
+98FNT88 	size = 24
+	_PC98_88font                    
+
+98MONOGR	size = 24
+	_PC98_grph_mono                 
+
+COLORP16	size = 47
+	_color_palette_16               
+
+DOS09H  	size = 13
+	_dos_print_doll                 
+
+KEYMATRX	size = 60
+	__km_m0                           __km_m1
+	__km_m2                           __km_m3
+	__km_m4                           __km_m5
+	__km_m6                           __km_m7
+	__km_m8                           __km_m9
+	__km_ma                           __km_mb
+	__km_mc                           __km_md
+	__km_me                         
+
+KYBUFCLS	size = 29
+	_key_buf_cls                    
+
+PC98BGIP	size = 323
+	_PC98_BGI_16color_palette_init  
+
+PC98GCLS	size = 73
+	_PC98_grph_cls                  
+
+PC98_DCH	size = 63
+	_PC98_cls_txt                     _PC98_color_txt
+	_PC98_locate_txt                  _PC98_print_doll
+
+PCCHK16C	size = 72
+	_PC98_chk_16color                 _PC98_chk_hi_resolution
+
+PCCHK86 	size = 23
+	_PC98_chk_8086                  
+
+SJISCNV1	size = 422
+	__sjis_ipow                       _dos_print_char
+	_sjis_num_prn                     _sjis_str_cnv
+	_sjis_str_prn                   

@@ -1,0 +1,41 @@
+glio.lib: ginit.obj gscreen.obj gview.obj \
+	gcolor.obj gpalette.obj \
+	gcls.obj gpset.obj \
+	gline.obj gsetpatn.obj \
+	gcircle.obj gellip.obj garc.obj \
+	gpaint.obj gpaintp.obj \
+	gget.obj gput.obj ggetsize.obj \
+	groll.obj \
+	gpoint.obj \
+	gputcode.obj gputs.obj \
+	gsave.obj gload.obj \
+	gliowork.obj
+
+.asm.obj:
+	tasm /mx $*
+	tlib glio -+$*
+
+ginit.obj:	ginit.asm
+gscreen.obj:	gscreen.asm
+gview.obj:	gview.asm
+gcolor.obj:	gcolor.asm
+gpalette.obj:	gpalette.asm
+gcls.obj:	gcls.asm
+gpset.obj:	gpset.asm
+gline.obj:	gline.asm
+gsetpatn.obj:	gsetpatn.asm
+gcircle.obj:	gcircle.asm
+gellip.obj:	gellip.asm
+garc.obj:	garc.asm
+gpaint.obj:	gpaint.asm
+gpaintp.obj:	gpaintp.asm
+gget.obj:	gget.asm
+gput.obj:	gput.asm
+ggetsize.obj:	ggetsize.asm
+groll.obj:	groll.asm
+gpoint.obj:	gpoint.asm
+gputcode.obj:	gputcode.asm
+gputs.obj:	gputs.asm
+gsave.obj:	gsave.asm
+gload.obj:	gload.asm
+gliowork.obj:	gliowork.asm

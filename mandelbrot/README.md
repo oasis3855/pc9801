@@ -6,7 +6,7 @@
 <br />
 <br />
 
-Last Updated : Apr. 1991
+Last Updated : Apr. 1992
 
 
 - [ソフトウエアのダウンロード](#ソフトウエアのダウンロード)

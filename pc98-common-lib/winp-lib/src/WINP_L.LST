@@ -1,0 +1,88 @@
+Publics by module
+
+COL_CONV	size = 85
+	_col_convert(int)               
+
+DISPKEI2	size = 1245
+	dispkei2(int,int,unsigned char,unsigned char,int,int)
+
+ISWAP   	size = 31
+	iswap(int far*,int far*)        
+
+PEEK    	size = 30
+	peek_str(int,int,unsigned char far*,unsigned int)
+
+POKE    	size = 30
+	poke_str(int,int,unsigned char far*,unsigned int)
+
+TEXTKEI3	size = 719
+	textkei3(int,int,int,int,int,int,int)
+
+VRAMRD  	size = 125
+	vramrd(int,int,unsigned char far*,unsigned char far*,int)
+
+VRAMWR  	size = 118
+	vramwr(int,int,unsigned char far*,unsigned char far*,int)
+
+WIN_GINP	size = 1480
+	inp_ginit_win(int,int,int,unsigned char far*far*,unsigned char far*far*)  inp_gwin(GMNU_INFO far*,unsigned char far*far*,unsigned char far*far*,int far*)
+
+WMNUSCRL	size = 466
+	win_mnu_scroll(int,SCROLL_MNU_INFO far*)
+
+W_EMNU_I	size = 141
+	mnu_winit_put_s(unsigned char far*far*,int,int,int,int)
+
+W_EMNU_M	size = 582
+	mnu_wmenu_s(unsigned char far*far*,EXTEND_MNU_INFO far*,int)
+
+W_GINPT 	size = 1101
+	inp_ginit_win_txt(int,int,int,unsigned char far*far*,unsigned char far*far*)  inp_gwin_txt(GMNU_INFO far*,unsigned char far*far*,unsigned char far*far*,int far*)
+
+W_GLINP 	size = 1447
+	inp_GLIO_ginit_win(int,int,int,unsigned char far*far*,unsigned char far*far*)  inp_GLIO_gwin(GMNU_INFO far*,unsigned char far*far*,unsigned char far*far*,int far*)
+
+W_GLMNU 	size = 1444
+	mnu_GLIO_ginit_put_s(unsigned char far*far*,int,int,int,int)  mnu_GLIO_gmenu(GMNU_INFO far*,int,unsigned char far*far*,int far*)
+
+W_GLM_BR	size = 813
+	mnu_barmake(GMNUBAR_INFO far*,unsigned char far*far*,int far*,unsigned char far*,int)  mnu_menubar(GMNUBAR_INFO far*,unsigned char far*far*,int far*,unsigned char far*,int)
+
+W_GMNU  	size = 1449
+	mnu_ginit_put_s(unsigned char far*far*,int,int,int,int)  mnu_gmenu(GMNU_INFO far*,int,unsigned char far*far*,int far*)
+
+W_GMNUT 	size = 1070
+	mnu_ginit_put_s_txt(unsigned char far*far*,int,int,int,int)  mnu_gmenu_txt(GMNU_INFO far*,int,unsigned char far*far*,int far*)
+
+W_GWIN  	size = 849
+	win_GLIO_ginit_win(int,int,int)   win_GLIO_gwin(GMNU_INFO far*,int far*)
+
+W_MDEL  	size = 95
+	win_mdelete(int,int,int,int)    
+
+W_MMAKE 	size = 160
+	win_mmake(int,int,int,int,int,int,int)
+
+W_MNU   	size = 767
+	mnu_winit_put(unsigned char far*far*,int,int,int)  mnu_wmenu(unsigned char far*far*,MNU_INFO far*)
+
+W_MNU_KR	size = 35
+	mnu_wread_key()                 
+
+W_MNU_LN	size = 69
+	mnu_wmax_len(unsigned char far*far*,int)
+
+W_SCROLL	size = 47
+	win_wscroll(int)                
+
+W_WDEL  	size = 455
+	win_wdelete(WIN_INFO far*)      
+
+W_WMAKE 	size = 529
+	win_wmake(WIN_INFO far*)        
+
+W_WMOV  	size = 594
+	win_wmove(int,int,WIN_INFO far*)
+
+W_WTITLE	size = 711
+	win_wtitle(unsigned char far*,int,int,WIN_INFO far*)

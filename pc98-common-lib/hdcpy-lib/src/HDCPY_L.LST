@@ -1,0 +1,15 @@
+Publics by module
+
+HDCPY   	size = 1931
+	__hc_fbuf                         __hc_fbuf_far
+	__hc_sB                           __hc_sC
+	__hc_sGR                          __hc_sL
+	__hc_sR                           __hc_sT
+	__hc_sTXT                         __hc_sX
+	__hc_sY                           _hc_VRAM_trans
+	_hc_binp_16x16                    _hc_binp_8x16
+	_hc_get_font                      _hc_hardcopy
+	_hc_lp_char                       _hc_lp_str
+	_hc_mk_fimage                     _hc_mk_image
+	_hc_mk_rev_image                  _hc_prn_close
+	_hc_prn_init                      _reg

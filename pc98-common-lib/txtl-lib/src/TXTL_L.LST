@@ -1,0 +1,15 @@
+Publics by module
+
+TXT_INHS	size = 534
+	txt_get_histbuf(unsigned char far*,int,int,int)  txt_jinp_hist(unsigned char far*,int,unsigned char far*,int,int,int,int)
+
+TXT_INP 	size = 1995
+	is_half_of_kanji(unsigned short)  txt_chgcursor(int)
+	txt_chgerrkey(int)                txt_chgkey(int,unsigned char far*)
+	txt_fontsize(unsigned char far*,unsigned int)  txt_jinp_edit(unsigned char far*,const unsigned char far*,const int,const int,const int,const int)
+	txt_jinp_error()                  txt_jinput(unsigned char far*,int,unsigned char far*,int,int,int)
+	txt_outp(int,int,int,int,unsigned char far*,unsigned char far*)  txt_read_key()
+	__txt_jinp_beep                   __txt_jinp_bplen
+	__txt_jinp_bptone                 __txt_jinp_down
+	__txt_jinp_tab                    __txt_jinp_up
+	_fkey_def                         _fkey_sav
